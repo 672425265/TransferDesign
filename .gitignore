@@ -1,0 +1,6 @@
+data/
+test/
+sample/
+logs/
+checkpoint/
+*.pyc
