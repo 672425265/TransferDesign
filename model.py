@@ -205,8 +205,8 @@ class cyclegan(object):
             return False
 
     def sample_model(self, sample_dir, epoch, idx):
-        dataA = glob('./data/{}/*.*'.format(self.dataset_dir + '/testA'))
-        dataB = glob('./data/{}/*.*'.format(self.dataset_dir + '/testB'))
+        dataA = glob('./data/{}/*.*'.format(self.dataset_dir + '/sampleA'))
+        dataB = glob('./data/{}/*.*'.format(self.dataset_dir + '/sampleB'))
         np.random.shuffle(dataA)
         np.random.shuffle(dataB)
         batch_files = list(zip(dataA[:self.batch_size], dataB[:self.batch_size]))
@@ -218,9 +218,14 @@ class cyclegan(object):
             feed_dict={self.real_data: sample_images}
         )
         save_images(fake_A, [self.batch_size, 1],
-                    './{}/A_{:02d}_{:04d}.jpg'.format(sample_dir, epoch, idx))
+                    './{}/A_{:04d}.jpg'.format(sample_dir, idx))
         save_images(fake_B, [self.batch_size, 1],
-                    './{}/B_{:02d}_{:04d}.jpg'.format(sample_dir, epoch, idx))
+                    './{}/B_{:04d}.jpg'.format(sample_dir, idx))
+        # save_images(fake_A, [self.batch_size, 1],
+        #             './{}/A_{:02d}_{:04d}.jpg'.format(sample_dir, epoch, idx))
+        # save_images(fake_B, [self.batch_size, 1],
+        #             './{}/B_{:02d}_{:04d}.jpg'.format(sample_dir, epoch, idx))
+
 
     def test(self, args):
         """Test cyclegan"""
