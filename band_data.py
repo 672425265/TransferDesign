@@ -19,10 +19,10 @@ for i in f.keys():
 		print str(id) + ' A: w/o gap'
 
 		if id % 5 == 0:
-			output_file_name = 'data/band/trainA/' + str(id) + '.png'
+			output_file_name = 'data/band/testA/' + str(id) + '.png'
 			plt.imsave(output_file_name, img, format="png", cmap="hot")
 		else:
-			output_file_name = 'data/band/testA/' + str(id) + '.png'
+			output_file_name = 'data/band/trainA/' + str(id) + '.png'
 			plt.imsave(output_file_name, img, format="png", cmap="hot")
 
 		
@@ -33,10 +33,10 @@ for i in f.keys():
 		print str(id) + ' B: w gap'
 
 		if id % 5 == 0:
-			output_file_name = 'data/band/trainB/' + str(id) + '.png'
+			output_file_name = 'data/band/testB/' + str(id) + '.png'
 			plt.imsave(output_file_name, img, format="png", cmap="hot")
 		else:
-			output_file_name = 'data/band/testB/' + str(id) + '.png'
+			output_file_name = 'data/band/trainB/' + str(id) + '.png'
 			plt.imsave(output_file_name, img, format="png", cmap="hot")
 
 
